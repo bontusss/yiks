@@ -1,0 +1,50 @@
+<script setup>
+import axios from 'axios'
+import { onMounted, ref, computed } from 'vue'
+defineProps({
+    name: String
+})
+const data = ref([])
+async function getNews() {
+    let res = await axios.get('https://thebontus.heroku.com/api/v1/tech')
+    data.value = res.data
+    // console.log(res.data);
+}
+const shuffled = computed(() => {
+    return data.value.sort(() => Math.random() - 0.5)
+})
+onMounted(() => {
+    getNews()
+})
+
+
+</script>
+
+<template>
+    <div class="container-scroller">
+        <div class="main-panel">
+            <div class="container">
+                <h2>{{ name }}</h2>
+                <div class="cat_header">
+                    <div class="editor-news">
+                        <div class="row">
+                            <div
+                                class="col-6 col-lg-3 mb-5 mb-sm-2"
+                                v-for="item in data"
+                                :key="item.id"
+                            >
+                                <a class="text-dark" :href="item.url">
+                                    <h5 class="i_title mt-3">{{ item.title }}</h5>
+                                </a>
+                                <p class="source">{{ item.newspaper }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<style scoped>
+</style>
