@@ -52,7 +52,7 @@
                                 <a href="#">FAQ.</a>
                             </li>
                             <li>
-                                <a href="#">About.</a>
+                                <router-link to="/about">About.</router-link>
                             </li>
                         </ul>
                         <p class="font-weight-medium">

@@ -8,6 +8,7 @@ import Crypto from "./views/Crypto.vue";
 import Entertainment from "./views/Entertainment.vue";
 import FromASource from "./views/FromASource.vue";
 import Search from "./views/Search.vue";
+import About from "./views/About.vue";
 
 const routes = [
   { path: "/", component: Home },
@@ -23,6 +24,7 @@ const routes = [
     name: "AllNewsFromASource",
   },
   { path: "/search", component: Search, name: "search" },
+  { path: "/about", component: About },
 ];
 const router = createRouter({
   history: createWebHistory(),
