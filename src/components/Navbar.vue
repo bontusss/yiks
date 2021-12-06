@@ -1,10 +1,24 @@
 <script setup>
+import { ref } from "vue"
+import { useRouter } from 'vue-router'
+
 // import moment from "moment";
 defineProps({
     site: String
 })
+const queryString = ref('')
+const router = useRouter()
 function showSearch() {
     document.getElementById("mobile-search").style.display = "block"
+}
+
+function goto() {
+    router.push({
+        name: 'search',
+        query: {
+            search: queryString.value,
+        }
+    })
 }
 
 </script>
@@ -34,11 +48,12 @@ function showSearch() {
                                     id="search"
                                     placeholder="Eg: Chelsea, Buhari, Biden"
                                     required
-                                    @keydown:enter="() => { }"
+                                    v-model="queryString"
+                                    @keydown:enter="goto()"
                                 />
                             </div>
                             <p
-                                @click="() => { }"
+                                @click="goto()"
                                 :disabled="() => { }"
                                 class="btn btn-dark mb-2"
                             >Search</p>
@@ -58,7 +73,8 @@ function showSearch() {
                         id="search"
                         placeholder="Eg: Chelsea, Buhari, Biden"
                         required
-                        @keydown:enter="() => { }"
+                        v-model="queryString"
+                        @keydown:enter="goto()"
                     />
                 </div>
                 <p @click="() => { }" :disabled="() => { }" class="ty btn btn-dark mb-2">Search</p>
@@ -112,7 +128,7 @@ function showSearch() {
                         <router-link class="nav-link" to="/business">Business</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/blogs">Blogs</router-link>
+                        <!-- <router-link class="nav-link" to="/blogs">Blogs</router-link> -->
                     </li>
                 </ul>
             </div>

@@ -32,6 +32,7 @@
 
 <script>
 import axios from 'axios'
+import Config from '../config'
 export default {
   data() {
     return {
@@ -42,7 +43,7 @@ export default {
 
   methods: {
     async getNews() {
-      let res = await axios.get("https://thebontus.heroku.com/api/v1/all");
+      let res = await axios.get(`${Config.API_URL}all`);
       this.data = res.data;
       this.isLoading = false;
     },

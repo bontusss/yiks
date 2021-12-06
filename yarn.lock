@@ -322,6 +322,18 @@ sourcemap-codec@^1.4.4:
   resolved "https://registry.yarnpkg.com/sourcemap-codec/-/sourcemap-codec-1.4.8.tgz#ea804bd94857402e6992d05a38ef1ae35a9ab4c4"
   integrity sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==
 
+swrv@^0.9.4-2:
+  version "0.9.4-2"
+  resolved "https://registry.yarnpkg.com/swrv/-/swrv-0.9.4-2.tgz#38b000937f999db240a31629a373864535e4bb6c"
+  integrity sha512-00LFOe1ItMGDxHTYZr5pCYn3qX5H/6MNl8Lg4OntblAG7FJSQol9gHFYF9inU1PUxrk6Q/KMZi7Gr0D36JLYVA==
+  dependencies:
+    swrv "^1.0.0-beta.8"
+
+swrv@^1.0.0-beta.8:
+  version "1.0.0-beta.8"
+  resolved "https://registry.yarnpkg.com/swrv/-/swrv-1.0.0-beta.8.tgz#745723f5ca8a7a7e290e911cf7da34cecaf356d3"
+  integrity sha512-MsjaMOvZODfM0cess/HhbSrNbAotYinv4vzipLckKYBo/QmrvjNUPGZSRSqByXy/9AjrMRFWo0YanaVPbqADPQ==
+
 vite@^2.6.4:
   version "2.6.14"
   resolved "https://registry.yarnpkg.com/vite/-/vite-2.6.14.tgz#35c09a15e4df823410819a2a239ab11efb186271"

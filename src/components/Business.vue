@@ -1,14 +1,24 @@
 <script setup>
 import axios from 'axios'
+import Config from '../config'
 import { onMounted, ref, computed } from 'vue'
 defineProps({
     name: String
 })
 const data = ref([])
 async function getNews() {
-    let res = await axios.get('https://thebontus.heroku.com/api/v1/business')
+    let res = await axios.get(`${Config.API_URL}business`)
     data.value = res.data
     // console.log(res.data);
+}
+function goto(location) {
+    console.log('working');
+    router.push({
+        name: 'AllNewsFromASource',
+        params: {
+            source: location
+        }
+    })
 }
 const shuffled = computed(() => {
     return data.value.sort(() => Math.random() - 0.5)
