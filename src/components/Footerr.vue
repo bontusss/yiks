@@ -1,7 +1,6 @@
 <template>
     <!-- partial:partials/_footer.html -->
     <footer>
-        <BackTop />
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -77,9 +76,9 @@
 <script>
 import moment from "moment";
 import NewsTicker from "./NewsTicker.vue";
-import BackTop from "./BackTop.vue"
+
 export default {
-    components: { NewsTicker, BackTop },
+    components: { NewsTicker, },
     data() {
         return {
             year: moment().format("YYYY"),
@@ -93,7 +92,7 @@ export default {
     src: url("~/static/fonts/Chomsky.woff");
 } */
 .title {
-    font-family: chomsky;
+    font-family: cursive;
     font-size: 50px;
     margin: -38px 0 0 0;
     font-weight: bold;
