@@ -1,25 +1,12 @@
 <script setup>
 import { ref } from "vue"
-import { useRouter } from 'vue-router'
+
 
 // import moment from "moment";
 defineProps({
     site: String
 })
 const queryString = ref('')
-const router = useRouter()
-function showSearch() {
-    document.getElementById("mobile-search").style.display = "block"
-}
-
-function goto() {
-    router.push({
-        name: 'search',
-        query: {
-            search: queryString.value,
-        }
-    })
-}
 
 </script>
 
@@ -29,7 +16,7 @@ function goto() {
             <div>
                 <a class="navbar-brand" href="/">
                     <!-- <img src="~/assets/images/logo.png" alt="" -->
-                    <p class="title text-secondary font-weight-bold">
+                    <p class="title text-grey font-weight-bold">
                         {{ site }}
                         <i class="news">News</i>
                     </p>
@@ -40,49 +27,28 @@ function goto() {
                 <ul class="navbar-right">
                     <li>
                         <form class="form-inline">
-                            <div class="form-group mx-sm-3 mb-2">
-                                <label for="search" class="sr-only">Search</label>
-                                <input
-                                    type="text"
-                                    class="form-control shadow-none border-dark"
-                                    id="search"
-                                    placeholder="Eg: Chelsea, Buhari, Biden"
-                                    required
-                                    v-model="queryString"
-                                    @keydown:enter="goto()"
-                                />
-                            </div>
-                            <p
-                                @click="goto()"
-                                :disabled="() => { }"
-                                class="btn btn-dark mb-2"
-                            >Search</p>
-                            <!-- <p @click="linkTo(query_string)">text</p> -->
+                            <router-link to="/search">
+                                <button class="btn btn-dark font-weight-bold">Search Yik</button>
+                            </router-link>
+                            <router-link to="#">
+                                <button class="btn btn-dark">
+                                    <i class="mdi mdi-facebook"></i>
+                                </button>
+                            </router-link>
+                            <router-link to="#">
+                                <button class="btn btn-dark">
+                                    <i class="mdi mdi-twitter"></i>
+                                </button>
+                            </router-link>
                         </form>
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="mobile-search" id="mobile-search">
-            <form class="form-inline d-lg-none">
-                <div class="form-group mx-sm-3 mb-2">
-                    <label for="search" class="sr-only">Search</label>
-                    <input
-                        type="text"
-                        class="form-control shadow-none border-dark"
-                        id="search"
-                        placeholder="Eg: Chelsea, Buhari, Biden"
-                        required
-                        v-model="queryString"
-                        @keydown:enter="goto()"
-                    />
-                </div>
-                <p @click="() => { }" :disabled="() => { }" class="ty btn btn-dark mb-2">Search</p>
-                <!-- <p @click="linkTo(query_string)">text</p> -->
-            </form>
-        </div>
-        <div @click="showSearch" class="search d-lg-none">
-            <i class="mdi mdi-magnify"></i>
+        <div class="search d-lg-none">
+            <router-link to="/search">
+                <i class="mdi mdi-magnify"></i>
+            </router-link>
         </div>
         <div class="navbar-bottom-menu">
             <button
@@ -157,6 +123,10 @@ function goto() {
     font-size: 14px;
     font-weight: normal;
     margin-left: -21px;
+}
+
+.yik {
+    font-size: 30px;
 }
 
 @media (max-width: 999px) {
